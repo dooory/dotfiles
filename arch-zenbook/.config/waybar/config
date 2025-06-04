@@ -1,14 +1,17 @@
 {
     "layer": "top",
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "battery", "clock"],
     "hyprland/window": {
         "max-length": 50
     },
+    "hyprland/submap": {
+    	"always-on": true
+    },
     "tray": {
 	"icon-size": 18,
-	"spacing": 20,
+	"spacing": 12,
     },
     "battery": {
         "format": "{capacity}% {icon}",
