@@ -17,6 +17,9 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 source ~/.zoxide.nu
+source ($nu.default-config-dir | path join "append.nu")
 
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
+
+
