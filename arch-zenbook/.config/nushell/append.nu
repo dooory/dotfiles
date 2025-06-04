@@ -1,3 +1,4 @@
-def append [text, file] {
-	echo $text out>> $file
+def append [appendingFile, appendText] {
+	echo $appendText out>> $appendingFile
+	cat $appendingFile
 }
