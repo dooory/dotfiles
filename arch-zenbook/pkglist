@@ -28,4 +28,5 @@ noto-fonts-extra
 bluez-tools
 bluez-utils
 grim
-keyd
+brightnessctl
+networkmanager
