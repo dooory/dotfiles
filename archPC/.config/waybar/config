@@ -1,0 +1,24 @@
+{
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "battery", "clock"],
+    "hyprland/window": {
+        "max-length": 50
+    },
+    "hyprland/submap": {
+    	"always-on": true
+    },
+    "tray": {
+	"icon-size": 18,
+	"spacing": 12,
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "reload_style_on_change": true
+}

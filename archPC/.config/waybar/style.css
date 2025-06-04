@@ -1,0 +1,91 @@
+*{
+    border: none;
+    border-radius: 0;
+    font-family: "DroidSansM Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: rgba(204, 95, 89, 0.5);
+}
+
+.modules-left .module, #window, .modules-right .module {
+    background-color: rgba(61,58,103, 0.5);
+    border: 1px solid rgba(204, 95, 89, 0.5);
+    border-top: 0px;
+    border-radius: 0 0 6px 6px ;
+    padding: 4px 16px;
+}
+
+.modules-left .module {
+   margin-left: 16px;
+}
+
+.modules-right {
+    margin-right: 8px;
+}
+
+.modules-right .module {
+    margin-left: 16px;
+}
+
+.modules-right > widget:last-child > #clock {
+    margin-right: 0;
+}
+
+#window {
+    padding: 4 24px;
+}
+
+#window#waybar.empty #window {
+    background-color: transparent;
+    border: 0px;
+}
+
+.modules-left {
+    margin-left: 8px;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #cc5f59;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
