@@ -4,5 +4,5 @@ hyprpaper &
 waybar &
 kitty &
 discord --ozone-platform=wayland --enable-features=UseOzonePlatform &
-spotify &
+spotify --ozone-platform=wayland --enable-features=UseOzonePlatform &
 
