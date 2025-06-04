@@ -1,0 +1,14 @@
+* {
+	font-family: "DroidSansM Nerd Font", Arial, sans-serif;	
+	font-size: 14px;
+	color: white;
+}
+
+window#waybar {	
+	background-color: transparent;	
+}
+
+.modules-right {
+	margin: 0 20px;
+}
+
