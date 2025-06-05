@@ -49,4 +49,16 @@ return {
     -- install jsregexp (optional!).
     build = 'make install_jsregexp',
   },
+  {
+    'vyfor/cord.nvim',
+    build = ':Cord update',
+    opts = {
+      hooks = {
+        post_activity = function(opts, activity)
+          local version = vim.version()
+          activity.assets.small_text = string.format('Kickstart Neovim %s.%s.%s', version.major, version.minor, version.patch)
+        end,
+      },
+    },
+  },
 }
