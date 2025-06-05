@@ -678,7 +678,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        -- rcss-lsp cssls
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -966,6 +966,46 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+
+  {
+    'Jezda1337/nvim-html-css',
+    --dependencies = { "hrsh7th/nvim-cmp", "nvim-treesitter/nvim-treesitter" }, -- Use this if you're using nvim-cmp
+    dependencies = { 'saghen/blink.cmp', 'nvim-treesitter/nvim-treesitter' }, -- Use this if you're using blink.cmp
+    opts = {
+      enable_on = { -- Example file types
+        'html',
+        'htmldjango',
+        'tsx',
+        'jsx',
+        'erb',
+        'svelte',
+        'vue',
+        'blade',
+        'php',
+        'templ',
+        'astro',
+      },
+      handlers = {
+        definition = {
+          bind = 'gd',
+        },
+        hover = {
+          bind = 'K',
+          wrap = true,
+          border = 'none',
+          position = 'cursor',
+        },
+      },
+      documentation = {
+        auto_show = true,
+      },
+      style_sheets = {
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.3/css/bulma.min.css',
+        './index.css', -- `./` refers to the current working directory.
+      },
+    },
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
