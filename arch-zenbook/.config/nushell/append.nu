@@ -1,4 +1,4 @@
 def append [appendingFile, appendText] {
-	echo $appendText out>> $appendingFile
+	echo $"\n($appendText)" out>> $appendingFile
 	cat $appendingFile
 }
