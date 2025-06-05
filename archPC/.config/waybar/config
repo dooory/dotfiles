@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "clock"],
+    "modules-right": ["tray", "pulseaudio", "clock"],
     "hyprland/window": {
         "max-length": 50
     },

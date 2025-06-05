@@ -6,9 +6,10 @@
     min-height: 0;
 }
 
-window#waybar {
+window#waybar,
+#workspaces button {
     background-color: transparent;
-    color: rgba(204, 95, 89, 0.5);
+    color: rgba(204, 95, 89, 0.8);
 }
 
 .modules-left .module, #window, .modules-right .module {
@@ -58,7 +59,6 @@ tooltip label {
 
 #workspaces button {
     padding: 0 5px;
-    color: #cc5f59;
     background: transparent;
     border-bottom: 3px solid transparent;
 }
