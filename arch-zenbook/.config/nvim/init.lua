@@ -34,7 +34,8 @@ What is Kickstart?
 
     If you don't know anything about Lua, I recommend taking some time to read through
     a guide. One possible example which will only take 10-15 minutes:
-      - https://learnxinyminutes.com/docs/lua/
+      - https://learnxinyminutes.com/docs/lua/,
+    
 
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
     reference for how Neovim integrates Lua.
@@ -248,11 +249,6 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-  {
-    'vyfor/cord.nvim',
-    build = ':Cord update',
-    -- opts = {}
-  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -526,6 +522,40 @@ require('lazy').setup({
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
+      --
+
+      vim.api.nvim_create_autocmd({ 'FileType' }, {
+        pattern = 'css,eruby,html,htmldjango,javascriptreact,less,pug,sass,scss,typescriptreact',
+        callback = function()
+          vim.lsp.start {
+            cmd = { 'emmet-language-server', '--stdio' },
+            root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+            -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+            -- **Note:** only the options listed in the table are supported.
+            init_options = {
+              ---@type table<string, string>
+              includeLanguages = {},
+              --- @type string[]
+              excludeLanguages = {},
+              --- @type string[]
+              extensionsPath = {},
+              --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+              preferences = {},
+              --- @type boolean Defaults to `true`
+              showAbbreviationSuggestions = true,
+              --- @type "always" | "never" Defaults to `"always"`
+              showExpandedAbbreviation = 'always',
+              --- @type boolean Defaults to `false`
+              showSuggestionsAsSnippets = false,
+              --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+              syntaxProfiles = {},
+              --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+              variables = {},
+            },
+          }
+        end,
+      })
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -678,7 +708,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        -- rcss-lsp cssls
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -988,8 +1018,8 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
-  --
+  { import = 'custom.plugins' },
+
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
