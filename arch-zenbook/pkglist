@@ -30,7 +30,9 @@ noto-fonts-cjk
 bluez-tools
 bluez-utils
 grim
+slurp
 brightnessctl
 networkmanager
 spotify-launcher
 npm
+luarocks
