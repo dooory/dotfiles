@@ -3,6 +3,3 @@
 hyprpaper &
 waybar &
 kitty &
-discord &
-spotify-launcher &
-
