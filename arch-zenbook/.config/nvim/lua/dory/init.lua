@@ -9,3 +9,6 @@ require("dory.remap-plugins")
 
 --// Loading personal appearance config
 require("dory.appearance")
+
+vim.opt.shiftwidth = 4
+vim.opt.clipboard =  "unnamedplus"
