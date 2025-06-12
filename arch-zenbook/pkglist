@@ -6,7 +6,6 @@ mako
 ly
 discord
 kitty
-nushell
 make
 unzip
 ripgrep
@@ -38,3 +37,4 @@ npm
 luarocks
 kdeconnect
 cmake
+fish
